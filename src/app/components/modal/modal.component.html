@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      New TODO
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label position="floating">Your task</ion-label>
+    <ion-textarea type="text" name="taskForm" placeholder="Type your task here..." [(ngModel)]="taskForm" auto-grow="true" required></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Priority</ion-label>
+    <ion-select value="1" okText="Okay" cancelText="Dismiss" interface="action-sheet" [(ngModel)]="priorityForm">
+      <ion-select-option value="1">Just todo</ion-select-option>
+      <ion-select-option value="2">Important</ion-select-option>
+      <ion-select-option value="3">Urgent</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-button type="submit" expand="block" color="success" size="large" [disabled]="!taskForm" (click)="save()">Save</ion-button>
+</ion-footer>
